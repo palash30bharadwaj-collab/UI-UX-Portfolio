@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Palash Bhardwaj is a UI/UX designer turning messy problems into simple, thoughtful digital experiences.">
+  <meta name="theme-color" content="#fbf7ef">
+  <title>Palash Bhardwaj — UX/UI Design Portfolio</title>
+  <style>
+    :root{
+      --paper:#fbf7ef;
+      --white:#fffdf8;
+      --ink:#302720;
+      --muted:#756a60;
+      --line:#e7ddd0;
+      --pink:#f5c7bd;
+      --coral:#dc735f;
+      --green:#c9d89a;
+      --green-dark:#4a6740;
+      --lavender:#dcd4ed;
+      --yellow:#f4dd91;
+      --max:1160px;
+      --radius:24px;
+      --shadow:0 18px 50px rgba(76,54,35,.09);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55;overflow-x:hidden}
+    body,button,input,textarea{font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button{color:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(calc(100% - 48px),var(--max));margin-inline:auto}
+    .serif{font-family:Georgia,"Times New Roman",serif}
+    .eyebrow{color:var(--coral);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .section{padding:100px 0}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:38px}
+    .section-heading h2{margin:8px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,6vw,70px);line-height:.98;letter-spacing:-.055em;font-weight:500}
+    .section-heading p{max-width:400px;margin:0;color:var(--muted)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--ink);border-radius:999px;padding:13px 19px;background:transparent;font-size:13px;font-weight:800;cursor:pointer;transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-2px)}
+    .button:active{transform:translateY(1px) scale(.98)}
+    .button.primary{background:var(--ink);color:white}
+    .button.light{background:var(--white);border-color:var(--line)}
+    :focus-visible{outline:3px solid var(--coral);outline-offset:4px}
+
+    .welcome{
+      position:fixed;inset:0;z-index:100;display:grid;place-items:center;
+      background:var(--pink);padding:24px;transition:opacity .5s,visibility .5s;
+    }
+    .welcome.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+    .welcome-card{max-width:600px;text-align:center}
+    .welcome-mark{width:82px;height:82px;display:grid;place-items:center;margin:0 auto 24px;border-radius:50%;background:var(--paper);font-family:Georgia,serif;font-size:34px}
+    .welcome-card h1{margin:12px 0 25px;font:500 clamp(46px,9vw,78px)/.96 Georgia,serif;letter-spacing:-.06em}
+    .welcome-card h1 span{color:var(--coral);font-style:italic}
+    .welcome-card p{color:#62483f}
+    .welcome-card .button{margin-top:15px;background:var(--ink);color:#fff;border-color:var(--ink)}
+    .welcome-hint{display:block;margin-top:18px;font-size:12px;color:#755d54}
+
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(48,39,32,.08)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font:700 23px Georgia,serif;letter-spacing:-.06em;white-space:nowrap}
+    .brand span{color:var(--coral)}
+    .nav-links{display:flex;align-items:center;gap:clamp(13px,2.2vw,27px);font-size:12px;font-weight:700}
+    .nav-links a{color:#655a50;transition:color .2s}
+    .nav-links a:hover,.nav-links a[aria-current="location"]{color:var(--coral)}
+    .nav-links .nav-contact{padding:10px 15px;border-radius:999px;background:var(--ink);color:#fff}
+    .menu-toggle{display:none;border:1px solid var(--line);background:var(--white);border-radius:50%;width:42px;height:42px;font-size:19px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    .hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;min-height:630px;padding:72px 0 80px}
+    .hero:before{content:"";position:absolute;width:340px;height:340px;left:-210px;top:100px;border-radius:50%;background:var(--yellow);opacity:.25;z-index:-1}
+    .availability{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid #e7d7c5;border-radius:999px;background:var(--white);font-size:12px;font-weight:700}
+    .availability:before{content:"";width:8px;height:8px;border-radius:50%;background:#7c9e5b}
+    .hero h1{margin:22px 0 15px;font:500 clamp(58px,8vw,99px)/.9 Georgia,serif;letter-spacing:-.075em}
+    .hero h1 span{color:var(--coral);font-style:italic}
+    .hero-copy{max-width:565px;font-size:18px;color:#655b52}
+    .hero-copy strong{color:var(--ink)}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+    .tag{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--white);font-size:12px;font-weight:700}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .hero-note{margin-top:17px;font:italic 15px Georgia,serif;color:var(--muted)}
+    .hero-art{position:relative;min-height:430px;display:grid;place-items:center}
+    .portrait-frame{position:relative;width:min(100%,350px);aspect-ratio:.91;border:12px solid var(--white);border-radius:48% 48% 22px 22px;background:var(--green);box-shadow:var(--shadow);overflow:hidden;transform:rotate(2deg);transition:transform .35s ease,box-shadow .35s ease}
+    .portrait-frame:hover{transform:rotate(0) scale(1.025);box-shadow:0 24px 60px rgba(76,54,35,.16)}
+    .portrait-photo{width:100%;height:100%;object-fit:cover;object-position:center 8%}
+    .portrait-frame{animation:photo-float 6s ease-in-out infinite}
+    .portrait-frame:hover{animation-play-state:paused}
+    .portrait-label{position:absolute;z-index:2;bottom:20px;left:50%;transform:translateX(-50%);padding:9px 14px;border-radius:999px;background:var(--white);font:italic 14px Georgia,serif;white-space:nowrap}
+    .art-sticker{position:absolute;z-index:3;display:grid;place-items:center;width:112px;height:112px;border-radius:50%;text-align:center;background:var(--yellow);font:italic 16px/1.1 Georgia,serif;transform:rotate(9deg)}
+    .art-sticker.one{top:10px;right:8px}
+    .art-sticker.two{bottom:13px;left:-5px;width:95px;height:95px;background:var(--lavender);font-size:13px}
+    .art-spark{position:absolute;color:var(--coral);font-size:42px}
+    .art-spark.a{top:60px;left:13px}
+    .art-spark.b{right:12px;bottom:65px;font-size:32px}
+
+    .projects-section{background:#f2eadf}
+    .project-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+    .project-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--white);transition:transform .22s,box-shadow .22s}
+    .project-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .project-art{position:relative;min-height:310px;display:flex;align-items:center;justify-content:space-between;gap:24px;overflow:hidden;padding:32px 8%;background:linear-gradient(125deg,#e3ead7,#f0e7d8 58%,#d9e4d6)}
+    .case-study-cover-copy{position:relative;z-index:1;max-width:360px}
+    .case-study-cover-copy span{color:#52694b;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .case-study-cover-copy strong{display:block;margin:13px 0 5px;font:500 clamp(38px,6vw,66px)/.95 Georgia,serif;letter-spacing:-.045em}
+    .case-study-cover-copy small{font:italic 18px Georgia,serif;color:#5f6655}
+    .case-study-screens{position:relative;display:flex;align-items:center;justify-content:center;min-width:300px;height:255px}
+    .case-study-screens img{width:118px;height:225px;object-fit:cover;border:5px solid #35352f;border-radius:21px;background:#fff;box-shadow:0 15px 30px #463b3028}
+    .case-study-screens img:nth-child(1){transform:rotate(-11deg) translateX(18px)}
+    .case-study-screens img:nth-child(2){position:relative;z-index:1;height:250px}
+    .case-study-screens img:nth-child(3){transform:rotate(11deg) translateX(-18px)}
+    .case-study-screens img:nth-child(1){animation:screen-float 4.8s ease-in-out infinite}
+    .case-study-screens img:nth-child(2){animation:screen-float 5.2s ease-in-out -1.2s infinite}
+    .case-study-screens img:nth-child(3){animation:screen-float 4.5s ease-in-out -2.1s infinite}
+    .project-body{padding:23px}
+    .project-type{color:var(--coral);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .project-body h3{margin:8px 0;font:500 27px Georgia,serif}
+    .project-body p{margin:0;color:var(--muted);font-size:14px}
+    .project-metrics{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+    .project-metrics span{padding:6px 9px;border-radius:999px;background:#f5efe6;color:#65594e;font-size:10px;font-weight:800}
+    .case-study-action{margin-top:20px}
+    .work-footnote{margin:23px 0 0;color:var(--muted);font-size:13px}
+
+    .stories{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .story-feature{padding:38px;border-radius:var(--radius);background:var(--green);min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .story-feature .quote-mark{font:88px/.7 Georgia,serif;color:#55704c}
+    .story-feature blockquote{max-width:680px;margin:10px 0;font:500 clamp(27px,4vw,43px)/1.08 Georgia,serif;letter-spacing:-.035em}
+    .story-feature cite{font-size:12px;font-style:normal;font-weight:800}
+    .story-stack{display:grid;gap:16px}
+    .story-note{padding:25px;border-radius:20px;background:var(--pink)}
+    .story-note:nth-child(2){background:var(--lavender)}
+    .story-note h3{margin:0 0 7px;font:500 23px Georgia,serif}
+    .story-note p{margin:0;color:#5f554f;font-size:14px}
+    .story-note,.timeline-card,.process-card{transition:box-shadow .25s ease,border-color .25s ease}
+    .story-note:hover,.timeline-card:hover,.process-card:hover{box-shadow:var(--shadow)}
+    .story-feature .quote-mark{transition:transform .35s ease,color .35s ease}
+    .story-feature:hover .quote-mark{transform:rotate(-8deg) scale(1.08);color:var(--coral)}
+
+    .about-section{background:#fffaf3}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+    .scrapbook-photo{position:relative;padding:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);transform:rotate(-2deg)}
+    .photo-placeholder{min-height:325px;display:grid;place-items:center;background:var(--pink);text-align:center;padding:25px;color:#795448;font:italic 19px Georgia,serif}
+    .about-photo{width:100%;height:325px;object-fit:cover;object-position:center 8%}
+    .photo-caption{padding:12px 5px 2px;font:italic 14px Georgia,serif}
+    .tape{position:absolute;top:-13px;left:35%;width:100px;height:30px;background:rgba(244,221,145,.78);transform:rotate(5deg)}
+    .about-copy h3{margin:0 0 12px;font:500 34px Georgia,serif}
+    .about-copy>p{color:#62594f}
+    .fact-list{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .fact-list span{padding:9px 12px;border-radius:999px;background:#f3eadf;font-size:12px;font-weight:700}
+    .toolkit{margin-top:27px}
+    .toolkit h4{margin:0 0 12px;font:italic 20px Georgia,serif}
+    .tool-list{display:flex;flex-wrap:wrap;gap:9px}
+    .tool-chip{min-width:84px;padding:12px 15px;border:1px solid var(--line);border-radius:13px;background:#fff;font-size:12px;font-weight:800;text-align:center}
+    .tag,.tool-chip,.fact-list span,.project-metrics span{transition:translate .2s ease,box-shadow .2s ease}
+    .tag:hover,.tool-chip:hover,.fact-list span:hover,.project-metrics span:hover{translate:0 -3px;box-shadow:0 8px 18px rgba(76,54,35,.1)}
+    .relocation{display:flex;align-items:center;gap:12px;margin-top:24px;padding:15px 17px;border-radius:15px;background:#edf1dd;font-weight:800}
+    .relocation span{color:var(--green-dark)}
+    .availability-card{margin-top:14px;padding:16px 18px;border:1px dashed #b9c58f;border-radius:15px;background:#fbfcf3}
+    .availability-card strong{display:block}
+    .availability-card small{color:var(--muted)}
+
+    .experience-section{background:#f2eadf}
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .timeline-card{position:relative;padding:23px 20px;border-top:2px solid var(--coral);background:var(--white);border-radius:0 0 16px 16px}
+    .timeline-card .step{color:var(--coral);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .timeline-card h3{margin:13px 0 8px;font:500 21px Georgia,serif}
+    .timeline-card p{margin:0;color:var(--muted);font-size:13px}
+    .timeline-card small{display:block;margin-top:13px;font-weight:800}
+
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .process-card{padding:25px;border:1px solid var(--line);border-radius:18px;background:var(--white)}
+    .process-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:50%;background:var(--pink);font-size:21px}
+    .process-card:nth-child(2) .process-icon{background:var(--yellow)}
+    .process-card:nth-child(3) .process-icon{background:var(--lavender)}
+    .process-card:nth-child(4) .process-icon{background:var(--green)}
+    .process-card h3{margin:16px 0 7px;font:500 23px Georgia,serif}
+    .process-card p{margin:0;color:var(--muted);font-size:13px}
+    .process-tools{display:block;margin-top:13px;color:var(--coral);font-size:10px;font-weight:900;letter-spacing:.05em}
+    .repeat-note{text-align:center;margin-top:23px;font:italic 18px Georgia,serif;color:var(--muted)}
+
+    .resume-section{background:#fffaf3}
+    .resume-panel{display:grid;grid-template-columns:1fr auto;align-items:start;gap:30px;padding:35px;border:1px solid var(--line);border-radius:22px;background:var(--white);box-shadow:var(--shadow)}
+    .resume-panel h3{margin:0 0 8px;font:500 25px Georgia,serif}
+    .resume-panel p{margin:0;color:var(--muted);font-size:14px}
+    .resume-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:26px}
+    .resume-group h4{margin:0 0 9px;font-size:12px;color:var(--coral);letter-spacing:.1em;text-transform:uppercase}
+    .resume-group p{margin:0;color:#574e46;font-size:13px}
+    .resume-group p+p{margin-top:8px}
+    .project-resume{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+    .project-resume ul{padding-left:18px;color:#574e46;font-size:13px}
+    .project-resume li+li{margin-top:7px}
+
+    .contact-section{background:var(--pink)}
+    .contact-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:start}
+    .contact-copy h2{margin:10px 0 14px;font:500 clamp(43px,6vw,68px)/.98 Georgia,serif;letter-spacing:-.05em}
+    .contact-copy p{color:#62483f}
+    .contact-links{display:grid;gap:9px;margin-top:25px}
+    .contact-links a{font-weight:800}
+    .contact-links a:hover{text-decoration:underline}
+    .contact-form{padding:25px;border:1px solid #eac0b5;border-radius:20px;background:var(--white)}
+    .contact-form h3{margin:0 0 16px;font:500 25px Georgia,serif}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:grid;gap:6px;margin-bottom:13px}
+    .field label{font-size:11px;font-weight:800}
+    .field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px;font-size:14px;color:var(--ink)}
+    .field textarea{min-height:110px;resize:vertical}
+    .form-help{margin:10px 0 0;color:var(--muted);font-size:11px}
+
+    .doodle-wrap{margin-top:30px;padding:20px;border:1px dashed #d39b8e;border-radius:18px;background:#fff8f4}
+    .doodle-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .doodle-top h3{margin:0;font:500 22px Georgia,serif}
+    .doodle-tools{display:flex;align-items:center;gap:8px}
+    .doodle-colors{display:flex;align-items:center;gap:6px}
+    .doodle-color{width:29px;height:29px;padding:0;border:2px solid var(--white);border-radius:50%;background:var(--swatch);box-shadow:0 0 0 1px var(--line);cursor:pointer;transition:transform .18s,box-shadow .18s}
+    .doodle-color:hover{transform:scale(1.12)}
+    .doodle-color[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+    #doodle{width:100%;height:190px;display:block;border:1px solid var(--line);border-radius:12px;background:#fff;touch-action:none}
+    .doodle-help{margin:9px 0 0;color:var(--muted);font-size:11px}
+    .footer{padding:30px 0 45px;background:var(--ink);color:#e8ded3}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-name{font:500 22px Georgia,serif}
+    .footer-links{display:flex;flex-wrap:wrap;gap:14px;font-size:12px}
+    .footer-note{margin-top:12px;color:#c1b5a8;font-size:12px}
+    .toast{position:fixed;left:50%;bottom:22px;z-index:200;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:12px 17px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;transition:opacity .2s,transform .2s}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .reading-progress{position:fixed;top:0;left:0;z-index:80;width:100%;height:3px;pointer-events:none}
+    .reading-progress span{display:block;width:100%;height:100%;background:var(--coral);transform:scaleX(0);transform-origin:left}
+    .hero-content,.hero-art{opacity:1}
+    body.has-entered .hero-content{animation:rise-in .75s .08s both}
+    body.has-entered .hero-art{animation:rise-in .8s .2s both}
+    .art-sticker.one{animation:sticker-float 4.5s ease-in-out infinite}
+    .art-sticker.two{animation:sticker-float 5s ease-in-out -1.2s infinite}
+    .art-spark.a{animation:sparkle 3s ease-in-out infinite}
+    .art-spark.b{animation:sparkle 3.5s ease-in-out -1s infinite}
+    .reveal-ready .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+    .reveal-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .reveal-ready .reveal:nth-child(2){transition-delay:.08s}
+    .reveal-ready .reveal:nth-child(3){transition-delay:.16s}
+    .reveal-ready .reveal:nth-child(4){transition-delay:.24s}
+    .project-card,.process-card,.timeline-card,.story-note{transform-style:preserve-3d}
+    .tilt-card:hover{transform:perspective(900px) rotateX(var(--rotate-x,0deg)) rotateY(var(--rotate-y,0deg)) translateY(-4px)}
+    @keyframes rise-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes photo-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+    @keyframes sticker-float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+    @keyframes sparkle{0%,100%{rotate:0deg;scale:1}50%{rotate:20deg;scale:1.18}}
+    @keyframes screen-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+
+    @media(max-width:900px){
+      .nav{align-items:flex-start;flex-wrap:wrap;padding:13px 0}
+      .nav-links{order:3;width:100%;overflow-x:auto;justify-content:flex-start;padding:3px 0;white-space:nowrap}
+      .menu-toggle{display:none}
+      .hero{min-height:0;grid-template-columns:1fr .8fr;gap:20px;padding:58px 0}
+      .hero-art{min-height:340px}
+      .portrait-frame{width:min(100%,280px)}
+      .timeline{grid-template-columns:repeat(2,1fr)}
+      .process-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:600px){
+      .wrap{width:min(calc(100% - 30px),var(--max))}
+      .section{padding:72px 0}
+      .section-heading{display:block;margin-bottom:27px}
+      .section-heading p{margin-top:15px}
+      .nav{position:relative;align-items:center;flex-wrap:wrap;padding:10px 0 4px}
+      .menu-toggle{display:grid;place-items:center}
+      .nav-links{display:none;position:absolute;top:calc(100% + 8px);right:0;z-index:60;width:min(240px,calc(100vw - 30px));padding:10px;border:1px solid var(--line);border-radius:16px;background:var(--white);box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:3px;font-size:13px}
+      .nav-links.is-open{display:flex}
+      .nav-links a{padding:10px 12px;border-radius:10px}
+      .nav-links a:hover{background:#f5efe6}
+      .nav-links .nav-contact{margin-top:4px;text-align:center}
+      .hero{grid-template-columns:1fr;padding:43px 0 58px}
+      .hero-art{grid-row:1;min-height:300px;width:min(100%,300px);margin:auto}
+      .hero h1{font-size:clamp(57px,15vw,78px)}
+      .hero-copy{font-size:16px}
+      .art-sticker.one{right:0}
+      .project-art{min-height:0;flex-direction:column;gap:0;padding:24px 15px 10px}
+      .case-study-cover-copy{text-align:center}
+      .case-study-screens{width:100%;min-width:0;height:205px}
+      .case-study-screens img{width:92px;height:175px}
+      .case-study-screens img:nth-child(2){height:195px}
+      .stories,.about-grid,.contact-layout{grid-template-columns:1fr}
+      .story-feature{min-height:280px;padding:28px}
+      .photo-placeholder,.about-photo{min-height:270px;height:270px}
+      .timeline,.process-grid{grid-template-columns:1fr}
+      .resume-panel{grid-template-columns:1fr;padding:24px}
+      .resume-groups{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr;gap:0}
+      .footer-inner{display:block}
+      .footer-links{margin-top:14px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      .reveal-ready .reveal{opacity:1;transform:none}
+    }
+    @media print{
+      .welcome,.site-header,.welcome,.hero-actions,.doodle-wrap,.contact-form,.footer,.toast{display:none!important}
+      body{background:white}
+      .section{padding:24px 0}
+      .resume-section{display:block!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <div class="welcome-card">
+      <div class="welcome-mark" aria-hidden="true">✦</div>
+      <div class="eyebrow">palash.design</div>
+      <h1 id="welcome-title">welcome to<br><span>Palash's design world</span> ✦</h1>
+      <p>Messy problems, thoughtful design, and a little bit of chai.</p>
+      <button class="button" id="enter-site" type="button">let's go in <span aria-hidden="true">↗</span></button>
+      <span class="welcome-hint">Tap to meet Palash's design assistant ♡</span>
+    </div>
+  </div>
+
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Palash home">Palash<span>.</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+        <span aria-hidden="true">☰</span><span class="sr-only">Open navigation</span>
+      </button>
+      <nav class="nav-links" id="main-navigation" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#resume">Resume</a>
+        <a class="nav-contact" href="#contact">Contact ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div class="hero-content">
+        <span class="availability">open to opportunities</span>
+        <h1>Hi, I'm<br><span>Palash.</span></h1>
+        <p class="hero-copy">I turn messy problems into simple, thoughtful digital experiences, <strong>one hand-drawn wireframe at a time.</strong></p>
+        <div class="hero-tags" aria-label="Design interests">
+          <span class="tag">Research</span><span class="tag">UI/UX Design</span><span class="tag">Product Thinking</span><span class="tag">AI &amp; Automation</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">✎ my work</a>
+          <a class="button light" href="./Palash-Bhardwaj-Resume.pdf" download>↓ download résumé</a>
+        </div>
+        <p class="hero-note">Good things take time ♡ Better ideas, happier users.</p>
+      </div>
+      <div class="hero-art" aria-label="Portrait of Palash">
+        <span class="art-spark a" aria-hidden="true">✳</span>
+        <span class="art-spark b" aria-hidden="true">✦</span>
+        <div class="portrait-frame">
+          <img class="portrait-photo" src="./palash-profile.png" alt="Palash Bhardwaj seated outdoors" fetchpriority="high">
+          <span class="portrait-label">That's me! ☺</span>
+        </div>
+        <div class="art-sticker one">better ideas<br>happier users</div>
+        <div class="art-sticker two">Dehradun</div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">✎ filed under: things I've obsessed over</div><h2>Selected Projects</h2></div>
+          <p>A mix of real problems, curious research, and thoughtful design decisions.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art" aria-label="Borrowly case study cover showing three app screens">
+              <div class="case-study-cover-copy">
+                <span>Featured case study · UX/UI design</span>
+                <strong>Borrowly</strong>
+                <small>Good books travel farther.</small>
+              </div>
+              <div class="case-study-screens" aria-hidden="true">
+                <img src="./Borrowly-Case-Study/UI%20Screens/04%20Book%20Details.png" alt="">
+                <img src="./Borrowly-Case-Study/UI%20Screens/01%20Home.png" alt="">
+                <img src="./Borrowly-Case-Study/UI%20Screens/09%20Request%20Sent.png" alt="">
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-type">01 · UX/UI case study</span>
+              <h3>Borrowly</h3>
+              <p>A neighborhood book-borrowing experience designed to help readers discover books and borrow with confidence.</p>
+              <div class="project-metrics"><span>UX research</span><span>User flows</span><span>Mobile UI design</span></div>
+              <a class="button primary case-study-action" href="./Borrowly-Case-Study/index.html">↗ View case study</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stories">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">✎ little design stories</div><h2>Curiosity<br>is a good start.</h2></div>
+          <p>Hover over a coaster to read it · swipe sideways on small screens →</p>
+        </div>
+        <div class="stories">
+          <article class="story-feature">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>During my degree I kept wondering how people enjoy coding for years. After graduating, I found my answer: UI/UX.</blockquote>
+            <cite>— the beginning of my design story</cite>
+          </article>
+          <div class="story-stack">
+            <article class="story-note"><h3>People before pixels ✦</h3><p>I like asking why people struggle, not just how to build a screen.</p></article>
+            <article class="story-note"><h3>The clock disappears ♡</h3><p>Especially when I'm researching a problem, arranging ideas, and sketching possible flows.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">✎ my scrapbook</div><h2>A little about me</h2></div>
+          <p>Designer, researcher, curious human — currently growing into product design.</p>
+        </div>
+        <div class="about-grid">
+          <div class="scrapbook-photo" aria-label="Portrait of Palash Bhardwaj">
+            <span class="tape" aria-hidden="true"></span>
+            <img class="about-photo" src="./palash-profile.png" alt="Palash Bhardwaj sitting on stone steps" loading="lazy">
+            <div class="photo-caption">That's me! ☺ · Dehradun, India</div>
+          </div>
+          <div class="about-copy">
+            <h3>Hi, I'm Palash Bhardwaj</h3>
+            <p>I'm a UI/UX Designer with a B.Sc. B.Ed. (PCM) from Motherhood University, Roorkee. My professional experience spans admissions consulting, healthcare talent acquisition, and travel sales — work that strengthened my ability to listen, understand people's needs, and guide them through decisions.</p>
+            <p>The clock disappears when I'm designing. I'm a research enthusiast, AI curious, and currently growing into Product Design.</p>
+            <div class="fact-list">
+              <span>🎓 B.Sc. B.Ed. (PCM)</span><span>🎨 UI/UX Designer</span><span>🔍 Research Enthusiast</span><span>🤖 AI Curious</span><span>🌱 Growing into Product Design</span>
+            </div>
+            <div class="toolkit">
+              <h4>✦ My Toolkit ✦</h4>
+              <div class="tool-list"><span class="tool-chip">Figma</span><span class="tool-chip">FigJam</span><span class="tool-chip">Notion</span><span class="tool-chip">Maze</span><span class="tool-chip">+ and more…</span></div>
+            </div>
+            <div class="relocation"><span>Dehradun</span><span aria-hidden="true">✦</span></div>
+            <div class="availability-card"><strong>Ready to join ✓</strong><small>Looking for a full-time, offline UI/UX role. Relocating and can join within 2 weeks of an offer.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">✦ certificate of learning</div><h2>Learning by doing</h2></div>
+          <p>More than 3.5 years of cumulative experience across admissions consulting, healthcare talent acquisition, and travel sales.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card"><span class="step">Jul 2025 – Aug 2026</span><h3>Senior Art Consultant</h3><p>Reyansh Rahul Art Academy · Guided students and parents through program selection and admissions, managed enrolment conversations, and partnered with academic and marketing teams.</p><small>Student counselling · Admissions · Client relationships</small></article>
+          <article class="timeline-card"><span class="step">Jun 2023 – Oct 2023</span><h3>Senior Talent Acquisition Associate</h3><p>Cynet Health · Supported US healthcare hiring through sourcing, screening, candidate coordination, credential checks, and offer-to-onboarding administration.</p><small>Healthcare recruitment · Candidate experience</small></article>
+          <article class="timeline-card"><span class="step">Feb 2021 – Mar 2022</span><h3>Talent Acquisition Associate</h3><p>Cynet Health · Sourced and screened healthcare candidates, maintained client relationships, and coordinated compliance documentation with internal teams.</p><small>Talent sourcing · Client coordination</small></article>
+          <article class="timeline-card"><span class="step">Feb 2019 – Mar 2020</span><h3>Travel Sales Consultant</h3><p>Prosperity Travels Ltd · Planned domestic and international trips, managed bookings and changes, recommended tailored options, and supported customers through their travel journey.</p><small>Travel sales · Customer service</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">✎ how I work</div><h2>My Process</h2></div>
+          <p>From the first question to a tested prototype.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card"><span class="process-icon" aria-hidden="true">🔍</span><h3>Research</h3><p>Interviews, observation, and finding the real problem before opening Figma.</p><span class="process-tools">UX RESEARCH · USER FLOWS</span></article>
+          <article class="process-card"><span class="process-icon" aria-hidden="true">✏️</span><h3>Structure</h3><p>Wireframes and prototypes that make the idea easy to test and discuss.</p><span class="process-tools">WIREFRAMING · PROTOTYPING</span></article>
+          <article class="process-card"><span class="process-icon" aria-hidden="true">🎨</span><h3>Interface</h3><p>Clean, consistent screens built on a small design system.</p><span class="process-tools">DESIGN SYSTEMS · FIGMA</span></article>
+          <article class="process-card"><span class="process-icon" aria-hidden="true">🧪</span><h3>Validation</h3><p>Usability tests to learn what works, and what to change next.</p><span class="process-tools">USABILITY TESTING · MAZE</span></article>
+        </div>
+        <p class="repeat-note">repeat until it feels right ♡</p>
+        <div style="margin-top:48px">
+          <div class="section-heading"><div><div class="eyebrow">a designer with a little coder brain</div><h2 style="font-size:clamp(34px,5vw,54px)">Design for the real world.</h2></div></div>
+          <div class="process-grid">
+            <article class="process-card"><h3>States</h3><p>Empty, loading, error and success get designed, not guessed.</p></article>
+            <article class="process-card"><h3>Data shapes</h3><p>I ask what the data looks like before drawing the screen.</p></article>
+            <article class="process-card"><h3>Constraints</h3><p>I think about what is cheap and what is costly to build.</p></article>
+            <article class="process-card"><h3>Handoff</h3><p>Specs a developer can actually build from.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section resume-section" id="resume">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">✎ the formal bit</div><h2>Resume</h2></div>
+          <p>A quick overview of my education, toolkit, and current design projects.</p>
+        </div>
+        <div class="resume-panel">
+          <div>
+            <h3>Palash Bhardwaj · UI/UX Designer</h3>
+            <p>Dehradun, India · Available within 2 weeks of an offer</p>
+            <div class="resume-groups">
+              <div class="resume-group"><h4>Education</h4><p><strong>B.Sc. B.Ed. (PCM) · Motherhood University, Roorkee</strong><br>2017–2021 · 84.17%</p><p><strong>Class XII · Silver Bells Public School</strong><br>CBSE · 2011 · 66.8%</p><p><strong>Class X · Silver Bells Public School</strong><br>CBSE · 2009 · 80%</p></div>
+              <div class="resume-group"><h4>Skills &amp; tools</h4><p><strong>Tools:</strong> Figma, FigJam, Notion, Maze</p><p><strong>Craft:</strong> UX Research, Wireframing, Prototyping</p><p><strong>Systems:</strong> Design Systems, User Flows, Usability Testing</p></div>
+            </div>
+            <div class="project-resume">
+              <div class="resume-group"><h4>Projects</h4>
+                <ul>
+                  <li><strong>Borrowly</strong> — Neighborhood book-borrowing experience; UX research, user flows and mobile UI design.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <a class="button primary" id="download-resume" href="./Palash-Bhardwaj-Resume.pdf" download>⤓ Download résumé (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="wrap">
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <div class="eyebrow">✎ say hi</div>
+            <h2>Let's create<br>something amazing ♡</h2>
+            <p>Open to full-time UI/UX roles, freelance work, and collaborations. Have a complex problem? Let's make it simple.</p>
+            <div class="contact-links">
+              <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=palash30bharadwaj%40gmail.com" target="_blank" rel="noopener noreferrer">✉ palash30bharadwaj@gmail.com</a>
+              <a href="https://www.linkedin.com/in/palash-bharadwaj-68b149208?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
+              <a href="https://www.behance.net/palashbharadwaj3" target="_blank" rel="noopener noreferrer">↗ Behance</a>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form" aria-describedby="contact-form-help">
+            <h3>Dear Palash,</h3>
+            <div class="form-row">
+              <div class="field"><label for="sender-name">my name is</label><input id="sender-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="sender-email">reach me at</label><input id="sender-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="field"><label for="sender-message">I'm writing about</label><textarea id="sender-message" name="message" required></textarea></div>
+            <button class="button primary" type="submit">send a little note ↗</button>
+            <p class="form-help" id="contact-form-help">This opens Gmail with your message addressed to me. Review it there and press Send. If Gmail does not open, <a href="mailto:palash30bharadwaj@gmail.com">email me directly</a>.</p>
+          </form>
+        </div>
+        <div class="doodle-wrap">
+          <div class="doodle-top">
+            <h3>Leave a doodle on my desk ✎</h3>
+            <div class="doodle-tools">
+              <div class="doodle-colors" role="group" aria-label="Doodle ink color">
+                <button class="doodle-color" type="button" style="--swatch:#dc735f" data-color="#dc735f" aria-label="Coral ink" aria-pressed="true"></button>
+                <button class="doodle-color" type="button" style="--swatch:#4a6740" data-color="#4a6740" aria-label="Green ink" aria-pressed="false"></button>
+                <button class="doodle-color" type="button" style="--swatch:#77639b" data-color="#77639b" aria-label="Violet ink" aria-pressed="false"></button>
+              </div>
+              <button class="button light" id="clear-doodle" type="button">Clear doodle</button>
+            </div>
+          </div>
+          <canvas id="doodle" aria-label="Draw a doodle on the canvas"></canvas>
+          <p class="doodle-help">Draw with your mouse, finger, or stylus. Your doodle stays in this browser session.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div><div class="footer-name">Palash Bhardwaj ✦</div><div class="footer-note">Dehradun, India · Ready to relocate</div></div>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#process">Process</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
+      </div>
+      <p class="footer-note">Let's design something better. ♡</p>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const welcome = document.querySelector("#welcome");
+      const enterButton = document.querySelector("#enter-site");
+      const toast = document.querySelector("#toast");
+      let toastTimer;
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2600);
+      }
+
+      function enterSite() {
+        welcome.classList.add("is-gone");
+        document.body.classList.add("has-entered");
+        document.body.style.overflow = "";
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+          const greeting = new SpeechSynthesisUtterance("Hi, welcome to Palash's design world. Let's make something better.");
+          greeting.rate = 0.96;
+          window.speechSynthesis.speak(greeting);
+        }
+      }
+
+      const returningFromCaseStudy = new URLSearchParams(window.location.search).get("from") === "case-study";
+      document.body.style.overflow = returningFromCaseStudy ? "" : "hidden";
+      if (returningFromCaseStudy) {
+        welcome.classList.add("is-gone");
+        document.body.classList.add("has-entered");
+      }
+      enterButton.addEventListener("click", enterSite);
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !welcome.classList.contains("is-gone")) enterSite();
+      });
+      if (!returningFromCaseStudy) {
+        window.addEventListener("load", () => enterButton.focus(), { once: true });
+      }
+
+      const menuToggle = document.querySelector("#menu-toggle");
+      const mainNavigation = document.querySelector("#main-navigation");
+      function setMenuOpen(isOpen) {
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.querySelector(".sr-only").textContent = isOpen ? "Close navigation" : "Open navigation";
+        mainNavigation.classList.toggle("is-open", isOpen);
+      }
+      menuToggle.addEventListener("click", () => {
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+      });
+      mainNavigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => setMenuOpen(false));
+      });
+      document.addEventListener("pointerdown", event => {
+        if (!mainNavigation.contains(event.target) && !menuToggle.contains(event.target)) setMenuOpen(false);
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+          setMenuOpen(false);
+          menuToggle.focus();
+        }
+      });
+
+      document.querySelector("#contact-form").addEventListener("submit", event => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const name = String(formData.get("name")).trim();
+        const email = String(formData.get("email")).trim();
+        const message = String(formData.get("message")).trim();
+        const composeUrl = new URL("https://mail.google.com/mail/");
+        composeUrl.searchParams.set("view", "cm");
+        composeUrl.searchParams.set("fs", "1");
+        composeUrl.searchParams.set("to", "palash30bharadwaj@gmail.com");
+        composeUrl.searchParams.set("su", `Portfolio enquiry from ${name}`);
+        composeUrl.searchParams.set("body", `${message}\n\nReply to: ${email}`);
+        window.open(composeUrl.toString(), "_blank", "noopener,noreferrer");
+      });
+
+      const canvas = document.querySelector("#doodle");
+      const context = canvas.getContext("2d");
+      let strokeColor = "#dc735f";
+      let drawing = false;
+      let lastPoint = null;
+      function resizeCanvas() {
+        const ratio = window.devicePixelRatio || 1;
+        const bounds = canvas.getBoundingClientRect();
+        const saved = canvas.width && canvas.height ? canvas.toDataURL() : null;
+        canvas.width = Math.round(bounds.width * ratio);
+        canvas.height = Math.round(bounds.height * ratio);
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        context.lineWidth = 3;
+        context.lineCap = "round";
+        context.lineJoin = "round";
+        context.strokeStyle = strokeColor;
+        if (saved) {
+          const image = new Image();
+          image.onload = () => context.drawImage(image, 0, 0, bounds.width, bounds.height);
+          image.src = saved;
+        }
+      }
+      function canvasPoint(event) {
+        const bounds = canvas.getBoundingClientRect();
+        return { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
+      }
+      canvas.addEventListener("pointerdown", event => {
+        drawing = true;
+        lastPoint = canvasPoint(event);
+        canvas.setPointerCapture(event.pointerId);
+      });
+      canvas.addEventListener("pointermove", event => {
+        if (!drawing || !lastPoint) return;
+        const point = canvasPoint(event);
+        context.beginPath();
+        context.moveTo(lastPoint.x, lastPoint.y);
+        context.lineTo(point.x, point.y);
+        context.stroke();
+        lastPoint = point;
+      });
+      function stopDrawing() {
+        drawing = false;
+        lastPoint = null;
+      }
+      canvas.addEventListener("pointerup", stopDrawing);
+      canvas.addEventListener("pointercancel", stopDrawing);
+      canvas.addEventListener("pointerleave", stopDrawing);
+      document.querySelectorAll(".doodle-color").forEach(button => {
+        button.addEventListener("click", () => {
+          strokeColor = button.dataset.color;
+          context.strokeStyle = strokeColor;
+          document.querySelectorAll(".doodle-color").forEach(colorButton => {
+            colorButton.setAttribute("aria-pressed", String(colorButton === button));
+          });
+        });
+      });
+      document.querySelector("#clear-doodle").addEventListener("click", () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        showToast("Doodle cleared ✦");
+      });
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      const progressBar = document.querySelector(".reading-progress span");
+      let progressFrame = 0;
+      function updateReadingProgress() {
+        if (progressFrame) return;
+        progressFrame = window.requestAnimationFrame(() => {
+          const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+          progressBar.style.transform = `scaleX(${Math.max(0, Math.min(1, progress))})`;
+          progressFrame = 0;
+        });
+      }
+      window.addEventListener("scroll", updateReadingProgress, { passive: true });
+      window.addEventListener("resize", updateReadingProgress);
+      updateReadingProgress();
+
+      const revealTargets = document.querySelectorAll(
+        "#projects .project-card, #stories .story-feature, #stories .story-note, " +
+        "#about .scrapbook-photo, #about .about-copy, #experience .timeline-card, " +
+        "#process .process-card, .resume-panel, #contact .contact-copy, " +
+        "#contact .contact-form, .doodle-wrap, .hero-tags .tag, " +
+        ".hero-actions .button, .fact-list span, .tool-chip, .project-metrics span"
+      );
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if ("IntersectionObserver" in window && !prefersReducedMotion) {
+        document.body.classList.add("reveal-ready");
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+        revealTargets.forEach(target => {
+          target.classList.add("reveal");
+          revealObserver.observe(target);
+        });
+      }
+
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !prefersReducedMotion) {
+        document.querySelectorAll(".project-card,.process-card,.timeline-card,.story-note").forEach(card => {
+          card.classList.add("tilt-card");
+          card.addEventListener("pointermove", event => {
+            const bounds = card.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            card.style.setProperty("--rotate-y", `${x * 4}deg`);
+            card.style.setProperty("--rotate-x", `${y * -4}deg`);
+          });
+          card.addEventListener("pointerleave", () => {
+            card.style.removeProperty("--rotate-x");
+            card.style.removeProperty("--rotate-y");
+          });
+        });
+      }
+
+      const sections = [...document.querySelectorAll("main section[id]")];
+      const navLinks = [...document.querySelectorAll(".nav-links a")];
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach(link => {
+              if (link.getAttribute("href") === `#${entry.target.id}`) link.setAttribute("aria-current", "location");
+              else link.removeAttribute("aria-current");
+            });
+          });
+        }, { rootMargin: "-35% 0px -55% 0px" });
+        sections.forEach(section => observer.observe(section));
+      }
+    })();
+  </script>
+</body>
+</html>

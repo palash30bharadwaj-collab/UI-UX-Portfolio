@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f5ed">
+    <meta name="description" content="Borrowly — a neighborhood book-borrowing experience, from the first search to the day a book comes home.">
+    <title>Borrowly — Good books travel farther</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Borrowly case study home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+        <span>Borrowly<span class="brand-period">.</span></span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a class="nav-cta" href="../index.html?from=case-study#home">← Back to portfolio</a>
+        <a href="#story">The story</a>
+        <a href="#journey">The journey</a>
+        <a href="#screens">Screens &amp; sketches</a>
+        <a class="nav-cta" href="./Prototype/Borrowly%20Prototype%202%20-%2019th%20Oct.html" target="_blank" rel="noreferrer">Try the prototype <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> UX/UI case study · Block 01</p>
+          <h1>Good books<br>travel <em>farther.</em></h1>
+          <p class="hero-intro">A neighborhood book-borrowing experience that makes finding your next read feel as good as passing one along.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#story">Explore the case study <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="./Prototype/Borrowly%20Prototype%202%20-%2019th%20Oct.html" target="_blank" rel="noreferrer">Open interactive prototype <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta">
+            <span><b>01</b> UX/UI design</span>
+            <span><b>02</b> Eight weeks of UI/UX solo work</span>
+            <span><b>03</b> Figma + FigJam</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Borrowly app mockup showing the home screen">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-sticker sticker-top"><span class="sticker-star">✳</span> GOOD READS,<br>GOOD NEIGHBORS</div>
+          <div class="hero-sticker sticker-bottom"><span class="sticker-icon">↗</span><span>Borrow close.<br>Read anywhere.</span></div>
+          <div class="device device-back device-back-left">
+            <div class="device-screen"><img src="./UI%20Screens/04%20Book%20Details.png" alt="" loading="eager"></div>
+          </div>
+          <div class="device device-back device-back-right">
+            <div class="device-screen"><img src="./UI%20Screens/09%20Request%20Sent.png" alt="" loading="eager"></div>
+          </div>
+          <div class="device device-main">
+            <div class="device-screen"><img src="./UI%20Screens/01%20Home.png" alt="Borrowly home screen: nearby books and neighborhood discovery" fetchpriority="high"></div>
+          </div>
+          <div class="hero-caption"><span class="caption-pulse"></span> A little closer to your next chapter</div>
+        </div>
+        <a class="scroll-cue" href="#story"><span></span> Scroll to explore</a>
+      </section>
+
+      <section class="snapshot" aria-label="Project overview">
+        <div class="snapshot-intro"><span class="section-kicker">02 / PROJECT CONTEXT</span><p>A peer-to-peer physical book borrowing app.</p></div>
+        <div class="snapshot-stat"><strong>8</strong><span>weeks of UI/UX solo work</span></div>
+        <div class="snapshot-stat"><strong>3</strong><span>personas across readers and lenders</span></div>
+        <div class="snapshot-stat"><strong>40</strong><span>low-fidelity mobile screens mapped</span></div>
+      </section>
+
+      <section class="story section-wrap" id="story">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">03 / THE PROBLEM</p>
+          <h2>Books are better<br><em>when they go places.</em></h2>
+        </div>
+        <div class="story-grid">
+          <div class="story-lede" data-reveal>
+            <span class="big-quote" aria-hidden="true">“</span>
+            <p>Buying every book adds up. Borrowing from a stranger can feel uncertain. Borrowly connects local readers while making the details of a peer-to-peer handoff easier to trust.</p>
+            <div class="story-signature"><span class="signature-line"></span> Affordable access, with people in mind</div>
+          </div>
+          <div class="story-cards" data-reveal>
+            <article class="story-card">
+              <span class="card-number">01 / ACCESS</span>
+              <h3>More books, without buying every one.</h3>
+              <p>Readers want affordable access to physical books, and unused books can find a new reader close to home.</p>
+            </article>
+            <article class="story-card">
+              <span class="card-number">02 / THE BARRIER</span>
+              <h3>Uncertainty makes peer borrowing harder.</h3>
+              <p>Safety, reliability, identity, and book-condition questions can stand between a reader and a request.</p>
+            </article>
+            <article class="story-card">
+              <span class="card-number">03 / THE DESIGN CHALLENGE</span>
+              <h3>Make it feel safe to say “yes” to a book.</h3>
+              <p>Connect local discovery to a clear, accountable borrowing journey—with the right information before a user commits.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="research section-wrap">
+        <div class="research-heading" data-reveal>
+          <div>
+            <p class="section-kicker">04 / RESEARCH</p>
+            <h2>Understand the people<br><em>behind the book.</em></h2>
+          </div>
+          <p class="heading-aside">Research synthesis, three personas, user stories, and competitor pattern review helped shape the product direction.</p>
+        </div>
+        <div class="research-grid" data-reveal>
+          <article class="research-card">
+            <span class="research-icon" aria-hidden="true">↗</span>
+            <span class="card-number">THE READERS</span>
+            <h3>Different readers.<br>Shared need.</h3>
+            <p>Students and budget-conscious readers, frequent readers, people seeking niche or trending titles, and readers who value verified peers.</p>
+          </article>
+          <article class="research-card">
+            <span class="research-icon" aria-hidden="true">↗</span>
+            <span class="card-number">THE LENDERS</span>
+            <h3>Books on shelves<br>can keep moving.</h3>
+            <p>People with unused books, collectors, and readers motivated by reputation or rewards make up the supply side of the community.</p>
+          </article>
+          <article class="research-card research-card-accent">
+            <span class="research-icon" aria-hidden="true">✳</span>
+            <span class="card-number">THE SIGNAL</span>
+            <h3>Trust is part of<br>the transaction.</h3>
+            <p>Discovery and reader identity matter—but so do reputation, clear availability, book condition, and a dependable handoff.</p>
+          </article>
+        </div>
+        <p class="research-note"><span>Pattern review</span> Discovery and identity · peer exchange and reputation · community circulation · clear availability and handover</p>
+      </section>
+
+      <section class="definition">
+        <div class="definition-inner">
+          <div class="definition-heading" data-reveal>
+            <p class="section-kicker">05 / DEFINITION</p>
+            <h2>From a book search<br>to a <em>trusted loop.</em></h2>
+            <p>The product structure covers the whole borrowing relationship—not just the moment a book is found.</p>
+          </div>
+          <div class="architecture" data-reveal aria-label="Borrowly information architecture">
+            <div class="architecture-label">FIVE CONNECTED AREAS</div>
+            <div class="architecture-items">
+              <span>Discover</span><i>→</i><span>Book details</span><i>→</i><span>Borrow</span><i>→</i><span>Read &amp; return</span><i>→</i><span>Community &amp; account</span>
+            </div>
+            <div class="flow-line"><span class="flow-dot"></span></div>
+            <div class="definition-flow"><span>THE BORROWER FLOW SHOWN HERE</span><b>Find a book <i>→</i> Trust the person <i>→</i> Borrow safely <i>→</i> Return easily</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="manifesto">
+        <div class="manifesto-inner" data-reveal>
+          <span class="manifesto-spark" aria-hidden="true">✳</span>
+          <p>Spend less.<br>Read more.<br><em>That’s Borrowly.</em></p>
+          <span class="manifesto-note">Your community. Your books.<br>Your way.</span>
+        </div>
+        <div class="manifesto-side" aria-hidden="true">
+          <span>KEEP THE STORY MOVING</span><span class="side-arrow">↘</span><span>KEEP THE STORY MOVING</span>
+        </div>
+      </section>
+
+      <section class="journey section-wrap" id="journey">
+        <div class="section-heading journey-heading" data-reveal>
+          <div>
+            <p class="section-kicker">THE BORROWING JOURNEY</p>
+            <h2>Every step, a little<br><em>closer to the story.</em></h2>
+          </div>
+          <p class="heading-aside">A guided flow from discovery to return. Choose a step to see the app in action.</p>
+        </div>
+        <div class="journey-layout" data-reveal>
+          <div class="journey-steps" role="tablist" aria-label="Borrowing journey steps">
+            <button class="journey-step is-active" role="tab" aria-selected="true" data-step="0"><span>01</span><span>Discover nearby</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="1"><span>02</span><span>Find a book</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="2"><span>03</span><span>Explore results</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="3"><span>04</span><span>Meet the book</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="4"><span>05</span><span>Meet the lender</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="5"><span>06</span><span>Choose a duration</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="6"><span>07</span><span>Plan the handover</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="7"><span>08</span><span>Review the request</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="8"><span>09</span><span>Send the request</span><i>↗</i></button>
+            <button class="journey-step" role="tab" aria-selected="false" data-step="9"><span>10</span><span>Keep track</span><i>↗</i></button>
+          </div>
+          <div class="journey-preview">
+            <div class="preview-topline"><span class="preview-tag"><span class="live-dot"></span> THE APP, IN 10 STEPS</span><span class="preview-count" id="step-count">01 / 10</span></div>
+            <div class="preview-content">
+              <div class="preview-copy" aria-live="polite">
+                <span class="preview-index" id="step-index">STEP 01</span>
+                <h3 id="step-title">Start with what’s nearby.</h3>
+                <p id="step-description">Open on a welcoming neighborhood feed. See available books close by, get inspired, and begin with a simple search.</p>
+                <div class="preview-controls"><button class="round-button" id="step-prev" aria-label="Previous step">←</button><button class="round-button" id="step-next" aria-label="Next step">→</button></div>
+              </div>
+              <div class="preview-phone">
+                <div class="preview-phone-screen"><img id="journey-image" src="./UI%20Screens/01%20Home.png" alt="Borrowly home screen" loading="lazy"></div>
+                <span class="phone-shadow"></span>
+              </div>
+            </div>
+            <div class="progress-track"><span id="progress-fill"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles">
+        <div class="principles-title" data-reveal>
+          <p class="section-kicker">06 / DESIGN DECISIONS</p>
+          <h2>Trust first.<br><em>Then make it easy.</em></h2>
+        </div>
+        <div class="principle-list">
+          <article class="principle" data-reveal><span>01</span><div><h3>Trust before transaction</h3><p>Surface lender verification, reputation, borrowing history, and book condition before a borrower commits. The extra context supports confidence in a peer-to-peer exchange.</p></div><b aria-hidden="true">↗</b></article>
+          <article class="principle" data-reveal><span>02</span><div><h3>Design for the full borrowing lifecycle</h3><p>Make the borrowing period, handover, status, and return part of the experience—not an afterthought once a book has changed hands.</p></div><b aria-hidden="true">↗</b></article>
+          <article class="principle" data-reveal><span>03</span><div><h3>Make the next step feel clear</h3><p>Keep the borrower journey legible from nearby discovery to request, while the wider product direction supports reminders, extensions, and return confirmation.</p></div><b aria-hidden="true">↗</b></article>
+        </div>
+      </section>
+
+      <section class="screens section-wrap" id="screens">
+        <div class="section-heading screens-heading" data-reveal>
+          <div>
+            <p class="section-kicker">FROM SKETCH TO SCREEN</p>
+            <h2>Good ideas take<br><em>shape, step by step.</em></h2>
+          </div>
+          <p class="heading-aside">Explore the complete ten-screen flow, from early wireframes to the final Borrowly UI.</p>
+        </div>
+        <div class="gallery-toolbar" data-reveal>
+          <div class="gallery-tabs" role="tablist" aria-label="Choose screen collection">
+            <button class="gallery-tab is-active" role="tab" aria-selected="true" data-gallery="ui">Polished screens <span>10</span></button>
+            <button class="gallery-tab" role="tab" aria-selected="false" data-gallery="wireframes">Wireframes <span>10</span></button>
+          </div>
+          <p><span class="gallery-count" id="gallery-count">10 screens</span> <span aria-hidden="true">·</span> Select a screen to enlarge</p>
+        </div>
+        <div class="screen-gallery" id="screen-gallery" aria-live="polite"></div>
+        <div class="gallery-footnote"><span class="footnote-mark">✳</span><span>Ten moments. One shared story.</span><a href="./Prototype/Borrowly%20Prototype%202%20-%2019th%20Oct.html" target="_blank" rel="noreferrer">Walk through the clickable prototype <b aria-hidden="true">↗</b></a></div>
+      </section>
+
+      <section class="closing-banner">
+        <div class="banner-squiggle" aria-hidden="true"></div>
+        <div class="closing-copy" data-reveal>
+          <span class="section-kicker">YOUR NEXT CHAPTER IS NEARBY</span>
+          <h2>One book can<br>bring us <em>closer.</em></h2>
+          <p>Borrowly turns neighborhood shelves into shared stories—and makes every handoff feel a little more human.</p>
+          <a class="button button-light" href="./Prototype/Borrowly%20Prototype%202%20-%2019th%20Oct.html" target="_blank" rel="noreferrer">Explore the prototype <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="banner-mockup" aria-label="Borrowly book details screen mockup">
+          <div class="banner-float-note"><span>NEAR YOU</span><b>One good read<br>away.</b><i>✳</i></div>
+          <div class="device device-banner">
+            <div class="device-screen"><img src="./UI%20Screens/04%20Book%20Details.png" alt="Borrowly book details screen shown in an app mockup" loading="lazy"></div>
+          </div>
+          <div class="banner-book" aria-hidden="true"><span>THE NEXT<br>CHAPTER</span><b>is closer<br>than you think.</b><i>↗</i></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Borrowly<span class="brand-period">.</span></span></a>
+      <p>Spend less. Read more. Share a little closer.</p>
+      <div class="footer-links">
+        <a href="./Prototype/Borrowly%20Prototype%202%20-%2019th%20Oct.html" target="_blank" rel="noreferrer">Interactive prototype ↗</a>
+        <a href="./Case%20Study/Borrowly_Case_Study_Six_Block.docx" download>Case study document ↓</a>
+      </div>
+      <span class="copyright">A neighborhood book-sharing concept</span>
+    </footer>
+
+    <dialog class="lightbox" id="screen-lightbox" aria-label="Enlarged app screen">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" aria-label="Close enlarged screen">×</button>
+        <button class="lightbox-arrow lightbox-prev" aria-label="Previous screen">←</button>
+        <figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+        <button class="lightbox-arrow lightbox-next" aria-label="Next screen">→</button>
+      </div>
+    </dialog>
+  </body>
+</html>

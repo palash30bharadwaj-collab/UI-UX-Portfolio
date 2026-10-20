@@ -57,24 +57,11 @@
     }
     .welcome.is-gone{opacity:0;visibility:hidden;pointer-events:none}
     .welcome-card{max-width:600px;text-align:center}
-    .welcome-illustration{display:block;width:min(240px,65vw);height:auto;margin:0 auto 8px;overflow:visible;animation:designer-float 4s ease-in-out infinite}
-    .designer-shadow{transform-box:fill-box;transform-origin:center;animation:shadow-breathe 4s ease-in-out infinite}
-    .designer-body{transform-box:fill-box;transform-origin:center;animation:designer-bob 4s ease-in-out infinite}
-    .designer-hand{transform-box:fill-box;transform-origin:left center;animation:designer-type .8s ease-in-out infinite alternate}
-    .designer-eyes{transform-box:fill-box;transform-origin:center;animation:designer-blink 4.8s ease-in-out infinite}
-    .designer-screen{animation:screen-glow 2.4s ease-in-out infinite}
     .welcome-card h1{margin:12px 0 25px;font:500 clamp(46px,9vw,78px)/.96 Georgia,serif;letter-spacing:-.06em}
     .welcome-card h1 span{color:var(--coral);font-style:italic}
     .welcome-card p{color:#62483f}
     .welcome-card .button{margin-top:15px;background:var(--ink);color:#fff;border-color:var(--ink)}
     .welcome-hint{display:block;margin-top:18px;font-size:12px;color:#755d54}
-    @keyframes designer-float{0%,100%{translate:0 0}50%{translate:0 -5px}}
-    @keyframes designer-bob{0%,100%{translate:0 0}50%{translate:0 -2px}}
-    @keyframes designer-type{from{rotate:-3deg}to{rotate:3deg}}
-    @keyframes designer-blink{0%,43%,47%,100%{scale:1 1}45%{scale:1 .08}}
-    @keyframes screen-glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.18)}}
-    @keyframes shadow-breathe{0%,100%{scale:1}50%{scale:.94}}
-
     .site-header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(48,39,32,.08)}
     .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{font:700 23px Georgia,serif;letter-spacing:-.06em;white-space:nowrap}
@@ -343,52 +330,6 @@
 <body>
   <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
     <div class="welcome-card">
-      <svg class="welcome-illustration" viewBox="0 0 240 180" role="img" aria-labelledby="designer-title designer-description">
-        <title id="designer-title">UI/UX designer at work</title>
-        <desc id="designer-description">A three-quarter view of a seated designer with wavy dark hair, glasses, and a beard, working at an angled laptop.</desc>
-        <ellipse class="designer-shadow" cx="119" cy="160" rx="76" ry="8" fill="#302720" opacity=".12"/>
-        <g fill="none" stroke="#756a60" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M63 78v33m0-33q0-8 8-8h13v37M54 110h41" stroke-width="5"/>
-          <path d="M58 146h-7m37 0h-7m-18-36v36m14-36v36" stroke-width="4"/>
-        </g>
-        <path d="M39 112l163-8 1 6-163 9z" fill="#302720"/>
-        <path d="M48 117v31m146-38v36" fill="none" stroke="#302720" stroke-width="4" stroke-linecap="round"/>
-        <g class="designer-body">
-          <path d="M91 113l15 8 14 18-17 12-14-4 8-19-8-9z" fill="#34445a"/>
-          <path d="M99 123l22 11 17-5 8 7-24 12-28-13z" fill="#26364b"/>
-          <path d="M104 129l-7 20-9 3 1 5 19 1 11-19m22-15 11 2 3 5-12 1-18-7" fill="none" stroke="#26364b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M91 78q13-11 29-2l7 33-31 8-10-17z" fill="#294461"/>
-          <path d="M98 80l6 1-4 35-7 2z" fill="#fffdf8"/>
-          <path d="M98 89l7 1m-8 8 7 1m-8 8 7 1" stroke="#68836a" stroke-width="2"/>
-          <path d="M108 86l17 13 10 1" fill="none" stroke="#d99b76" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="designer-hand" d="M130 100l9 1 4-3m-5 6 8-1" fill="none" stroke="#d99b76" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M104 69l1 10 11 3 4-12" fill="#c88a68"/>
-          <path d="M91 49q0-17 15-19 15-2 20 12l3 13q-5 12-15 16l-11-2q-9-5-11-15l-4-3z" fill="#d99b76"/>
-          <path d="M89 49q-3-12 5-20l-1-5 7 2q9-8 19-2l-1 3q10 2 12 14l-5 8-6-7-7-7q-6 9-20 11z" fill="#242326"/>
-          <path d="M94 33q2-7 8-8m5-3q8-2 13 4m-31 15q-1 4 1 7" fill="none" stroke="#45434a" stroke-width="3" stroke-linecap="round"/>
-          <path d="M94 58q5-3 10 0m5-1q5-3 10 0" fill="none" stroke="#302720" stroke-width="1.8" stroke-linecap="round"/>
-          <g class="designer-eyes" fill="#302720">
-            <ellipse cx="100" cy="57" rx="1.5" ry="2"/>
-            <ellipse cx="113" cy="56" rx="1.3" ry="1.8"/>
-          </g>
-          <path d="M106 57l4 7-3 1m-4 5q5 3 9-1" fill="none" stroke="#9a594d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M97 65q8 11 18 3l3-5q-10 4-21 2z" fill="#302720"/>
-          <path d="M97 66q4-4 8-2m2-1q4-4 8-1" fill="none" stroke="#302720" stroke-width="2.5" stroke-linecap="round"/>
-          <g fill="none" stroke="#302720" stroke-width="1.6">
-            <path d="M94 52q5-3 10-1l1 7q-5 2-10 0z"/>
-            <path d="M108 51q4-2 8 0l1 6q-4 2-8 1z"/>
-            <path d="M104 52l4-.5m13-1 4-2" stroke-linecap="round"/>
-          </g>
-        </g>
-        <g class="designer-screen">
-          <path d="M143 69l38-4 1 34-39 5z" fill="#302720"/>
-          <path d="M146 73l32-3 1 26-32 3z" fill="#fffdf8"/>
-          <path d="M148 78l18-2m-18 7 13-1m-13 7 19-2" stroke="#dc735f" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="172" cy="90" r="2" fill="#c9d89a"/>
-          <path d="M136 103l49-5 9 5-48 9z" fill="#756a60" stroke="#302720" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M146 105l28-3m-23 6 27-3" stroke="#fffdf8" stroke-width="1" stroke-linecap="round" opacity=".75"/>
-        </g>
-      </svg>
       <div class="eyebrow">palash.design</div>
       <h1 id="welcome-title">welcome to<br><span>Palash's design world</span></h1>
       <p>Messy problems, thoughtful design, and a little bit of innovation.</p>

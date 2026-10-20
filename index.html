@@ -6,6 +6,7 @@
   <meta name="description" content="Palash Bhardwaj is a UI/UX designer turning messy problems into simple, thoughtful digital experiences.">
   <meta name="theme-color" content="#fbf7ef">
   <title>Palash Bhardwaj — UX/UI Design Portfolio</title>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("portfolio-color-theme")||"light"}catch{document.documentElement.dataset.theme="light"}</script>
   <style>
     :root{
       --paper:#fbf7ef;
@@ -22,6 +23,12 @@
       --max:1160px;
       --radius:24px;
       --shadow:0 18px 50px rgba(76,54,35,.09);
+    }
+    :root[data-theme="dark"]{
+      color-scheme:dark;
+      --paper:#191613;--white:#26211d;--ink:#f4ece2;--muted:#c1b4a7;--line:#494039;
+      --pink:#493136;--coral:#ed927d;--green:#344332;--green-dark:#bacb9d;
+      --lavender:#383244;--yellow:#4a4029;--shadow:0 18px 50px rgba(0,0,0,.28)
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:100px}
@@ -65,6 +72,8 @@
     .nav-links a{color:#655a50;transition:color .2s}
     .nav-links a:hover,.nav-links a[aria-current="location"]{color:var(--coral)}
     .nav-links .nav-contact{padding:10px 15px;border-radius:999px;background:var(--ink);color:#fff}
+    .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+    .theme-toggle:hover{border-color:var(--coral)}
     .menu-toggle{display:none;border:1px solid var(--line);background:var(--white);border-radius:50%;width:42px;height:42px;font-size:19px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
@@ -83,6 +92,24 @@
     .resume-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:start}
     .hero-note{margin-top:17px;font:italic 15px Georgia,serif;color:var(--muted)}
     .hero-art{position:relative;min-height:430px;display:grid;place-items:center}
+    :root[data-theme="dark"] .site-header{background:rgba(25,22,19,.94);border-bottom-color:rgba(244,236,226,.1)}
+    :root[data-theme="dark"] .nav-links a{color:var(--muted)}
+    :root[data-theme="dark"] .nav-links .nav-contact{color:#191613}
+    :root[data-theme="dark"] .welcome-card p,:root[data-theme="dark"] .welcome-hint{color:#f3ddd5}
+    :root[data-theme="dark"] .welcome-card .button,:root[data-theme="dark"] .button.primary{background:#f4ece2;border-color:#f4ece2;color:#191613}
+    :root[data-theme="dark"] .projects-section,:root[data-theme="dark"] .experience-section{background:#211d19}
+    :root[data-theme="dark"] .about-section,:root[data-theme="dark"] .resume-section{background:#1e1a17}
+    :root[data-theme="dark"] .hero-copy,:root[data-theme="dark"] .about-copy>p,:root[data-theme="dark"] .story-note p,:root[data-theme="dark"] .resume-group p,:root[data-theme="dark"] .contact-copy p{color:var(--muted)}
+    :root[data-theme="dark"] .project-art{background:linear-gradient(125deg,#30382b,#3c3028 58%,#29352b)}
+    :root[data-theme="dark"] .case-study-cover-copy span,:root[data-theme="dark"] .case-study-cover-copy small{color:#c3d0af}
+    :root[data-theme="dark"] .scrapbook-photo,:root[data-theme="dark"] .tool-chip,:root[data-theme="dark"] .field input,:root[data-theme="dark"] .field textarea{background:var(--white);color:var(--ink)}
+    :root[data-theme="dark"] .fact-list span{background:#332c26}
+    :root[data-theme="dark"] .availability-card{background:#24291f;border-color:#586347}
+    :root[data-theme="dark"] .doodle-wrap{background:#28201e}
+    :root[data-theme="dark"] #doodle{background:#fff}
+    :root[data-theme="dark"] .footer{background:#111;color:#e8ded3}
+    :root[data-theme="dark"] .toast{background:#e8ded3;color:#191613}
+    :root[data-theme="dark"] .nav-links a:hover{background:#332c26}
     .portrait-frame{position:relative;width:min(100%,350px);aspect-ratio:.91;border:12px solid var(--white);border-radius:48% 48% 22px 22px;background:var(--green);box-shadow:var(--shadow);overflow:hidden;transform:rotate(2deg);transition:transform .35s ease,box-shadow .35s ease}
     .portrait-frame:hover{transform:rotate(0) scale(1.025);box-shadow:0 24px 60px rgba(76,54,35,.16)}
     .portrait-photo{width:100%;height:100%;object-fit:cover;object-position:center 8%}
@@ -326,6 +353,7 @@
         <a href="#process">Process</a>
         <a href="#resume">Resume</a>
         <a class="nav-contact" href="#contact">Contact ↗</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">☾ Dark mode</button>
       </nav>
     </div>
   </header>
@@ -568,6 +596,20 @@
 
   <script>
     (() => {
+      const themeToggle = document.querySelector("[data-theme-toggle]");
+      function updateThemeToggle() {
+        const isDark = document.documentElement.dataset.theme === "dark";
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+        themeToggle.textContent = isDark ? "☀ Light mode" : "☾ Dark mode";
+      }
+      updateThemeToggle();
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem("portfolio-color-theme", nextTheme);
+        updateThemeToggle();
+      });
       const welcome = document.querySelector("#welcome");
       const enterButton = document.querySelector("#enter-site");
       const toast = document.querySelector("#toast");

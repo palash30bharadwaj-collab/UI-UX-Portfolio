@@ -79,6 +79,9 @@ button { color: inherit; }
 :root[data-theme="dark"] .lightbox figure img { border-color: var(--line); }
 :root[data-theme="dark"] .lightbox-close,
 :root[data-theme="dark"] .lightbox-arrow { border-color: var(--line); background: #302a24; color: var(--ink); }
+:root[data-theme="dark"] .hero-sticker { color: #211d1a; }
+:root[data-theme="dark"] .story-card h3,
+:root[data-theme="dark"] .research-card h3 { color: #211d1a; }
 :root[data-theme="dark"] .hero-intro,
 :root[data-theme="dark"] .hero-meta,
 :root[data-theme="dark"] .snapshot-stat span,

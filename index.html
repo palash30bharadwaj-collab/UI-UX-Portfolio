@@ -57,12 +57,21 @@
     }
     .welcome.is-gone{opacity:0;visibility:hidden;pointer-events:none}
     .welcome-card{max-width:600px;text-align:center}
-    .welcome-mark{width:82px;height:82px;display:grid;place-items:center;margin:0 auto 24px;border-radius:50%;background:var(--paper);font-family:Georgia,serif;font-size:34px}
+    .welcome-illustration{display:block;width:min(240px,65vw);height:auto;margin:0 auto 8px;overflow:visible;animation:designer-float 4s ease-in-out infinite}
+    .designer-shadow{transform-box:fill-box;transform-origin:center;animation:shadow-breathe 4s ease-in-out infinite}
+    .designer-body{transform-box:fill-box;transform-origin:center;animation:designer-bob 4s ease-in-out infinite}
+    .designer-hand{transform-box:fill-box;transform-origin:left center;animation:designer-type .8s ease-in-out infinite alternate}
+    .designer-screen{animation:screen-glow 2.4s ease-in-out infinite}
     .welcome-card h1{margin:12px 0 25px;font:500 clamp(46px,9vw,78px)/.96 Georgia,serif;letter-spacing:-.06em}
     .welcome-card h1 span{color:var(--coral);font-style:italic}
     .welcome-card p{color:#62483f}
     .welcome-card .button{margin-top:15px;background:var(--ink);color:#fff;border-color:var(--ink)}
     .welcome-hint{display:block;margin-top:18px;font-size:12px;color:#755d54}
+    @keyframes designer-float{0%,100%{translate:0 0}50%{translate:0 -5px}}
+    @keyframes designer-bob{0%,100%{translate:0 0}50%{translate:0 -2px}}
+    @keyframes designer-type{from{rotate:-3deg}to{rotate:3deg}}
+    @keyframes screen-glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.18)}}
+    @keyframes shadow-breathe{0%,100%{scale:1}50%{scale:.94}}
 
     .site-header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(48,39,32,.08)}
     .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -332,9 +341,35 @@
 <body>
   <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
     <div class="welcome-card">
-      <div class="welcome-mark" aria-hidden="true">✦</div>
+      <svg class="welcome-illustration" viewBox="0 0 240 180" role="img" aria-labelledby="designer-title designer-description">
+        <title id="designer-title">UI/UX designer at work</title>
+        <desc id="designer-description">A male designer sits in a chair and works on a small laptop.</desc>
+        <ellipse class="designer-shadow" cx="119" cy="160" rx="76" ry="8" fill="#302720" opacity=".12"/>
+        <path d="M61 76v35m0-35q0-8 8-8h16v39M51 111h44" fill="none" stroke="#756a60" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M57 147h-8m38 0h-8m-18-35v35m15-35v35" fill="none" stroke="#756a60" stroke-width="4" stroke-linecap="round"/>
+        <path d="M37 113h166m-157 0v37m148-37v37" fill="none" stroke="#302720" stroke-width="4" stroke-linecap="round"/>
+        <g class="designer-body">
+          <path d="M91 116l7 19-8 20h19l15-19-10-21z" fill="#51473e"/>
+          <path d="M107 113l15 14 22-2 7 10-31 7-22-15z" fill="#65594d"/>
+          <path d="M95 75q14-9 28 2l5 37-37 4 3-34z" fill="#dc735f"/>
+          <path class="designer-hand" d="M112 83l15 11 10 1-1 6-15-1-15-10" fill="none" stroke="#f0b99f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M99 88l17 11 11 1" fill="none" stroke="#f0b99f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="107" cy="56" r="18" fill="#d99b76"/>
+          <path d="M90 54q1-20 19-19 13 1 16 15l-7-4-5-6q-8 9-23 8z" fill="#302720"/>
+          <path d="M102 59h1m10 0h1" stroke="#302720" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M105 66q4 3 8 0" fill="none" stroke="#9a594d" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M101 151h14m28-16 8 4" fill="none" stroke="#302720" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <g class="designer-screen">
+          <path d="M140 73h39q3 0 3 3v29h-45V76q0-3 3-3z" fill="#302720"/>
+          <rect x="141" y="76" width="40" height="26" rx="2" fill="#fffdf8"/>
+          <path d="M126 108h63l-7 5h-50z" fill="#756a60" stroke="#302720" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M151 82h19m-19 5h13m-13 5h17" stroke="#dc735f" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="174" cy="98" r="2" fill="#c9d89a"/>
+        </g>
+      </svg>
       <div class="eyebrow">palash.design</div>
-      <h1 id="welcome-title">welcome to<br><span>Palash's design world</span> ✦</h1>
+      <h1 id="welcome-title">welcome to<br><span>Palash's design world</span></h1>
       <p>Messy problems, thoughtful design, and a little bit of innovation.</p>
       <button class="button" id="enter-site" type="button">let's go in <span aria-hidden="true">↗</span></button>
       <span class="welcome-hint">Tap to meet Palash's design assistant ♡</span>

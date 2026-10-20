@@ -80,6 +80,7 @@
     .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
     .tag{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--white);font-size:12px;font-weight:700}
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .resume-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:start}
     .hero-note{margin-top:17px;font:italic 15px Georgia,serif;color:var(--muted)}
     .hero-art{position:relative;min-height:430px;display:grid;place-items:center}
     .portrait-frame{position:relative;width:min(100%,350px);aspect-ratio:.91;border:12px solid var(--white);border-radius:48% 48% 22px 22px;background:var(--green);box-shadow:var(--shadow);overflow:hidden;transform:rotate(2deg);transition:transform .35s ease,box-shadow .35s ease}
@@ -342,6 +343,7 @@
         </div>
         <div class="hero-actions">
           <a class="button primary" href="#projects">✎ my work</a>
+          <a class="button light" href="./Palash-Bhardwaj-Resume.html">↗ view résumé</a>
           <a class="button light" href="./Palash-Bhardwaj-Resume.pdf" download>↓ download résumé</a>
         </div>
         <p class="hero-note">Good things take time ♡ Better ideas, happier users.</p>
@@ -491,7 +493,7 @@
             <h3>Palash Bhardwaj · UI/UX Designer</h3>
             <p>Dehradun, India · Available within 2 weeks of an offer</p>
             <div class="resume-groups">
-              <div class="resume-group"><h4>Education</h4><p><strong>B.Sc. B.Ed. (PCM) · Motherhood University, Roorkee</strong><br>2017–2021 · 84.17%</p><p><strong>Class XII · Silver Bells Public School</strong><br>CBSE · 2011 · 66.8%</p><p><strong>Class X · Silver Bells Public School</strong><br>CBSE · 2009 · 80%</p></div>
+              <div class="resume-group"><h4>Education</h4><p><strong>UI/UX Leadership Program — IIM Skills</strong><br>June 2026 – October 2026 (ongoing)</p><p><strong>B.Sc. B.Ed. (PCM) · Motherhood University, Roorkee</strong><br>2017–2021 · 84.17%</p></div>
               <div class="resume-group"><h4>Skills &amp; tools</h4><p><strong>Tools:</strong> Figma, FigJam, Notion, Maze</p><p><strong>Craft:</strong> UX Research, Wireframing, Prototyping</p><p><strong>Systems:</strong> Design Systems, User Flows, Usability Testing</p></div>
             </div>
             <div class="project-resume">
@@ -502,7 +504,10 @@
               </div>
             </div>
           </div>
-          <a class="button primary" id="download-resume" href="./Palash-Bhardwaj-Resume.pdf" download>⤓ Download résumé (PDF)</a>
+          <div class="resume-actions">
+            <a class="button light" href="./Palash-Bhardwaj-Resume.html">↗ View résumé</a>
+            <a class="button primary" id="download-resume" href="./Palash-Bhardwaj-Resume.pdf" download>⤓ Download résumé (PDF)</a>
+          </div>
         </div>
       </div>
     </section>
@@ -587,9 +592,10 @@
         }
       }
 
-      const returningFromCaseStudy = new URLSearchParams(window.location.search).get("from") === "case-study";
-      document.body.style.overflow = returningFromCaseStudy ? "" : "hidden";
-      if (returningFromCaseStudy) {
+      const returnSource = new URLSearchParams(window.location.search).get("from");
+      const returningFromContent = returnSource === "case-study" || returnSource === "resume";
+      document.body.style.overflow = returningFromContent ? "" : "hidden";
+      if (returningFromContent) {
         welcome.classList.add("is-gone");
         document.body.classList.add("has-entered");
       }
@@ -597,7 +603,7 @@
       document.addEventListener("keydown", event => {
         if (event.key === "Escape" && !welcome.classList.contains("is-gone")) enterSite();
       });
-      if (!returningFromCaseStudy) {
+      if (!returningFromContent) {
         window.addEventListener("load", () => enterButton.focus(), { once: true });
       }
 

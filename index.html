@@ -627,12 +627,6 @@
         welcome.classList.add("is-gone");
         document.body.classList.add("has-entered");
         document.body.style.overflow = "";
-        if ("speechSynthesis" in window) {
-          window.speechSynthesis.cancel();
-          const greeting = new SpeechSynthesisUtterance("Hi, welcome to Palash's design world. Let's make something better.");
-          greeting.rate = 0.96;
-          window.speechSynthesis.speak(greeting);
-        }
       }
 
       const returnSource = new URLSearchParams(window.location.search).get("from");

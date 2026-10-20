@@ -206,8 +206,6 @@ button { color: inherit; }
 .manifesto-inner > p { margin: 0; font: 800 clamp(38px, 5.5vw, 64px)/.97 var(--display); letter-spacing: -.065em; }
 .manifesto-inner em { font-family: var(--serif); font-weight: 400; }
 .manifesto-note { display: block; margin-top: 20px; font-size: 10px; line-height: 1.5; opacity: .85; }
-.manifesto-side { position: absolute; right: 7%; top: 50%; display: flex; flex-direction: column; align-items: center; gap: 12px; transform: translateY(-50%); font-size: 7px; letter-spacing: .18em; writing-mode: vertical-rl; }
-.side-arrow { font-size: 25px; }
 
 .journey { padding-top: 126px; padding-bottom: 128px; }
 .journey-heading, .screens-heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; }
@@ -412,7 +410,6 @@ button { color: inherit; }
   .definition-flow b { align-items: flex-start; flex-direction: column; gap: 4px; }
   .definition-flow i { transform: rotate(90deg); }
   .manifesto { min-height: 310px; }
-  .manifesto-side { right: 4%; font-size: 6px; }
   .journey { padding-top: 87px; padding-bottom: 88px; }
   .journey-heading, .screens-heading { display: block; }
   .heading-aside { max-width: 360px; margin-top: 15px; font-size: 11px; }

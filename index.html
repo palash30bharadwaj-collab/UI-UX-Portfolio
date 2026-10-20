@@ -57,6 +57,7 @@
     }
     .welcome.is-gone{opacity:0;visibility:hidden;pointer-events:none}
     .welcome-card{max-width:600px;text-align:center}
+    .welcome-photo{display:block;width:min(100%,360px);max-height:min(24vh,170px);aspect-ratio:706/337;object-fit:cover;object-position:center;border-radius:18px;margin:0 auto 20px;box-shadow:0 12px 30px rgba(48,39,32,.16)}
     .welcome-card h1{margin:12px 0 25px;font:500 clamp(46px,9vw,78px)/.96 Georgia,serif;letter-spacing:-.06em}
     .welcome-card h1 span{color:var(--coral);font-style:italic}
     .welcome-card p{color:#62483f}
@@ -330,6 +331,7 @@
 <body>
   <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
     <div class="welcome-card">
+      <img class="welcome-photo" src="./onboarding-workspace.png" alt="Palash working at his laptop in a warm, sunlit design workspace">
       <div class="eyebrow">palash.design</div>
       <h1 id="welcome-title">welcome to<br><span>Palash's design world</span></h1>
       <p>Messy problems, thoughtful design, and a little bit of innovation.</p>
